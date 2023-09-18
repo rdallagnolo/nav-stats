@@ -7,13 +7,6 @@ st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="
 
 df = pd.read_csv("final/NQ Main.csv")
 
-# Calculate the observed minimum and maximum values
-min_y = df['main Quality'].min()
-max_y = df['main Quality'].max()
-
-# Calculate the y-axis limits
-y_range = (min_y * 0.5, max_y * 1.5)
-
 # Create the line plot using Plotly Express
 fig = px.line(df, x="Seq", y="main Quality")
 
@@ -23,19 +16,14 @@ fig.update_layout(
     xaxis_title="Sequences",
     yaxis_title="Quality",
     width=1200,
-    height=600,
-)
-# Update the legend
-fig.update_layout(
+    height=800,
+    template='presentation',
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,
     legend=dict(orientation='h', y=-0.2),  # Adjust the y-coordinate of the legend
     margin=dict(b=50),  # Adjust the bottom margin to make space for the legend
 )
-
-# Update the y-axis limits in the figure
-fig.update_yaxes(range=y_range)
 
 # Show the plot
 st.plotly_chart(fig, theme=None)

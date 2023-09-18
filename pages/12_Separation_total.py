@@ -22,11 +22,8 @@ fig.update_layout(
     xaxis_title='Sequence',
     yaxis_title='Separation (m)',
     width=1200,
-    height=600,
-)
-
-# Update the legend
-fig.update_layout(
+    height=800,
+    template='presentation',
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,

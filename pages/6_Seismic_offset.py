@@ -12,13 +12,6 @@ df2 = pd.read_csv("final/Inline Offsets.csv")
 df['Difference'] = ((df["V1 - S06 CNG DA m"] + df["V1 - S07 CNG DA m"])/2) - ((df["V1 - G1 DA m"] + df["V1 - G2 DA m"] + df["V1 - G3 DA m"])/3)
 df2['Difference 2'] = (df2["(V1 DA) - (S06 DA) m"] - df2["(V1 DA) - (G2 DA) m"])
 
-# Calculate the observed minimum and maximum values
-min_y = df.iloc[:,-1:].min()
-max_y = df.iloc[:,-1:].max()
-
-# Calculate the y-axis limits (10%)
-y_range = (min_y.min() * 0.8, max_y.max() * 1.20)
-
 # Create a figure
 fig = go.Figure()
 
@@ -34,21 +27,14 @@ fig.update_layout(
     xaxis_title='Sequence',
     yaxis_title='Seismic offset (m)',
     width=1200,
-    height=600,
-)
-
-# Update the legend
-fig.update_layout(
+    height=800,
+    template='presentation',
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,
     legend=dict(orientation='h', y=-0.2),  # Adjust the y-coordinate of the legend
     margin=dict(b=50),  # Adjust the bottom margin to make space for the legend
 )
-
-
-# Update the y-axis limits in the figure
-fig.update_yaxes(range=y_range)
 
 # Show the plot
 st.plotly_chart(fig, theme=None)

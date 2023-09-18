@@ -7,14 +7,6 @@ st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="
 
 df = pd.read_csv("final/Gun Depths.csv")
 
-# Calculate the observed minimum and maximum values
-min_y = df.iloc[:,:-1].min()
-max_y = df.iloc[:,:-1].max()
-
-# Calculate the y-axis limits (10%)
-y_range = (min_y.min() * 0.9, max_y.max() * 1.10)
-
-
 columns_to_plot = df.columns[:]
 # Create the line plot
 fig = px.line(df, x="Seq", y=columns_to_plot)
@@ -25,19 +17,14 @@ fig.update_layout(
     xaxis_title="Sequences",
     yaxis_title="Depth (m)",
     width=1200,
-    height=600,
-)
-# Update the legend
-fig.update_layout(
+    height=800,
+    template='presentation',
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,
     legend=dict(orientation='h', y=-0.2),  # Adjust the y-coordinate of the legend
     margin=dict(b=50),  # Adjust the bottom margin to make space for the legend
 )
-
-# Update the y-axis limits in the figure
-fig.update_yaxes(range=y_range)
 
 # Show the plot
 st.plotly_chart(fig, theme=None)

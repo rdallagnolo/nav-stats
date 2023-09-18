@@ -18,10 +18,8 @@ fig.update_layout(
     xaxis_title="Sequences",
     yaxis_title="SMA (m)",
     width=1200,
-    height=600,
-)
-# Update the legend
-fig.update_layout(
+    height=800,
+    template='presentation',
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,

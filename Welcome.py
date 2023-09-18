@@ -21,4 +21,4 @@ st.markdown("""
 #
         """)
 
-st.write("v 0.1")
+st.write("v 0.2")
