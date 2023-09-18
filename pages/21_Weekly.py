@@ -5,8 +5,8 @@ import streamlit as st
 st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 # Load both CSV files
-vessel_speed = pd.read_csv("/home/sovnav/projects/nav-stats/StreamlitApp/final/Vessel Speed.csv")
-weekly_speed = pd.read_csv("/home/sovnav/projects/nav-stats/StreamlitApp/final/Weekly-Vessel-Speed.csv")
+vessel_speed = pd.read_csv("final/Vessel Speed.csv")
+weekly_speed = pd.read_csv("final/Weekly-Vessel-Speed.csv")
 
 # Get the rows that are in 'Vessel Speed.csv' but not in 'Weekly-Vessel-Speed.csv'
 missing_rows = vessel_speed[~vessel_speed['Seq'].isin(weekly_speed['Seq'])]

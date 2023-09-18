@@ -4,8 +4,8 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="wide", initial_sidebar_state="auto", menu_items=None)
 
-df1 = pd.read_csv("../StreamlitApp/final/Tailbuoy Separation .csv")
-df2 = pd.read_csv("../StreamlitApp/final/Streamer Separation.csv")
+df1 = pd.read_csv("final/Tailbuoy Separation .csv")
+df2 = pd.read_csv("final/Streamer Separation.csv")
 
 # Create a figure
 fig = go.Figure()

@@ -5,7 +5,7 @@ import pandas as pd
 st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
-df = pd.read_csv("../StreamlitApp/final/Vessel to Gun and Streamer.csv")
+df = pd.read_csv("final/Vessel to Gun and Streamer.csv")
 
 # Assuming df is your DataFrame
 columns_to_plot = df.columns[3:-1]
