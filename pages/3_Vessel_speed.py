@@ -42,4 +42,3 @@ fig.update_yaxes(range=y_range)
 
 # Show the plot
 st.plotly_chart(fig, theme=None)
-st.write(df)

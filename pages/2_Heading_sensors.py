@@ -4,7 +4,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="wide", initial_sidebar_state="auto", menu_items=None)
 
-df = pd.read_csv("../StreamlitApp/final/Gyros.csv")
+df = pd.read_csv("final/Gyros.csv")
 
 # Calculate the differences between columns
 df["V1GY1 - V1GY2"] = df["V1GY1 Raw °"] - df["V1GY2 Raw °"]
