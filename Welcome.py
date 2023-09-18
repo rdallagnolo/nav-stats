@@ -14,11 +14,11 @@ st.markdown("""
           
             
 #### Process page 
-        Add new lines in this page
+        Admin access only.
 
 #
 # 
 #
         """)
 
-st.write("v 0.0")
+st.write("v 0.1")
