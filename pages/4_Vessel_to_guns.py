@@ -9,6 +9,14 @@ df = pd.read_csv("final/Vessel to Gun and Streamer.csv")
 # Assuming df is your DataFrame
 columns_to_plot = df.columns[:-1][:3]  # Select the first 3 columns
 
+# Calculate the min and max of the y values
+min_y = df[columns_to_plot].min().min()
+max_y = df[columns_to_plot].max().max()
+
+# Calculate the 5% higher and lower y axis max and min values
+y_min = min_y * 0.95
+y_max = max_y * 1.05
+
 fig = px.line(df, x='Seq', y=columns_to_plot, title='Line Plot of Selected Columns',
               labels={'Seq': 'Sequence'},
               )
@@ -25,8 +33,10 @@ fig.update_layout(
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,
-    legend=dict(orientation='h', y=-0.2),  # Adjust the y-coordinate of the legend
-    margin=dict(b=50),  # Adjust the bottom margin to make space for the legend
+    legend=dict(orientation='h', y=-0.2),
+    margin=dict(b=50),
+    yaxis_range=[y_min, y_max]
 )
 
 st.plotly_chart(fig, theme = None)
+#st.write(max_y)

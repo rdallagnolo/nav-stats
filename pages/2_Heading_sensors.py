@@ -11,6 +11,14 @@ df["V1GY1 - V1GY2"] = df["V1GY1 Raw °"] - df["V1GY2 Raw °"]
 df["V1GY1 - V1GY3"] = df["V1GY1 Raw °"] - df["V1GY3 Raw °"]
 df["V1GY2 - V1GY3"] = df["V1GY2 Raw °"] - df["V1GY3 Raw °"]
 
+# Calculate the min and max of the differences
+min_diff = df[["V1GY1 - V1GY2", "V1GY1 - V1GY3", "V1GY2 - V1GY3"]].min().min()
+max_diff = df[["V1GY1 - V1GY2", "V1GY1 - V1GY3", "V1GY2 - V1GY3"]].max().max()
+
+# Calculate the 20% higher and lower y axis max and min values
+y_min = min_diff * 1.5
+y_max = max_diff * 1.5
+
 # Create the line plot
 fig = go.Figure()
 
@@ -30,8 +38,9 @@ fig.update_layout(
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,
-    legend=dict(orientation='h', y=-0.2),  # Adjust the y-coordinate of the legend
-    margin=dict(b=50),  # Adjust the bottom margin to make space for the legend
+    legend=dict(orientation='h', y=-0.2),
+    margin=dict(b=50),
+    yaxis_range=[y_min, y_max],
 )
 
 # Show the plot

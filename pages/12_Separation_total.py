@@ -7,6 +7,14 @@ st.set_page_config(page_title="Stats Dashboard", page_icon=":dolphin:", layout="
 df1 = pd.read_csv("final/Tailbuoy Separation .csv")
 df2 = pd.read_csv("final/Streamer Separation.csv")
 
+# Calculate the min and max of the y values
+min_y = df2.iloc[:, -2].min()
+max_y = df1.iloc[:, -2].max()
+
+# Calculate the 5% higher and lower y axis max and min values
+y_min = min_y * 0.95
+y_max = max_y * 1.05
+
 # Create a figure
 fig = go.Figure()
 
@@ -27,8 +35,9 @@ fig.update_layout(
     legend_title_text='',
     legend_traceorder='reversed',
     showlegend=True,
-    legend=dict(orientation='h', y=-0.2),  # Adjust the y-coordinate of the legend
-    margin=dict(b=50),  # Adjust the bottom margin to make space for the legend
+    legend=dict(orientation='h', y=-0.2),
+    margin=dict(b=50),
+    yaxis_range=[y_min, y_max]
 )
 
 # Show the plot
