@@ -146,7 +146,7 @@ fig3.add_annotation(x=25, y=4.8,
             showarrow=False,
             yshift=10)
 
-fig3.add_vrect(x0=31.1, x1=36, line_width=0, fillcolor="purple", opacity=0.2)
+fig3.add_vrect(x0=31.1, x1=39, line_width=0, fillcolor="purple", opacity=0.2)
 fig3.add_annotation(x=32.5, y=4.8,
             text="Week 38",
             showarrow=False,
@@ -191,7 +191,7 @@ fig4.add_annotation(x=25, y=4.8,
             showarrow=False,
             yshift=10)
 
-fig4.add_vrect(x0=31.1, x1=36, line_width=0, fillcolor="purple", opacity=0.2)
+fig4.add_vrect(x0=31.1, x1=39, line_width=0, fillcolor="purple", opacity=0.2)
 fig4.add_annotation(x=32.5, y=4.8,
             text="Week 38",
             showarrow=False,
